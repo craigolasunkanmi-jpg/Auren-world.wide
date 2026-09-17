@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Auren world.wide"
+description = "A premium fashion storefront for discovering elevated wardrobe essentials under the Auren world.wide label, with a password-protected admin portal for managing the catalog and reviewing orders."
+version = "1.0.0"
+id = "artifacts/lume-atelier"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19142
+
+[services.development]
+run = "pnpm --filter @workspace/lume-atelier run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/lume-atelier", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/lume-atelier/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19142"
+BASE_PATH = "/"
