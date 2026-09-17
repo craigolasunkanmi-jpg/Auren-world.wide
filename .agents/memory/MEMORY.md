@@ -1,0 +1,1 @@
+- [GitHub write authentication](github-write-auth.md) — verify actual repository write access; read access and API permission summaries may not be sufficient for Git pushes.
