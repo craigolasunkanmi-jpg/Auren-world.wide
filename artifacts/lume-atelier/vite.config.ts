@@ -14,6 +14,9 @@ if (Number.isNaN(port) || port <= 0) {
 }
 
 const basePath = process.env.BASE_PATH ?? '/';
+const outputDir = process.env.VERCEL
+  ? path.resolve(process.cwd(), 'dist')
+  : path.resolve(import.meta.dirname, 'dist/public');
 
 export default defineConfig({
   base: basePath,
@@ -49,7 +52,7 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, 'dist/public'),
+    outDir: outputDir,
     emptyOutDir: true,
   },
   server: {

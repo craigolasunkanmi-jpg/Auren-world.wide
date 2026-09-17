@@ -1,7 +1,7 @@
 {
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm --filter @workspace/lume-atelier run build",
-  "outputDirectory": "artifacts/lume-atelier/dist/public",
+  "outputDirectory": "artifacts/lume-atelier/dist",
   "rewrites": [
     {
       "source": "/(.*)",
